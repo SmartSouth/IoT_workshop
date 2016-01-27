@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+<body>
+    <span id="temp"></span><br>
+    <span id="tstamp"></span><br>
+
+    <button id="connectbutton" onclick="start()">Read Temp</button>
+
+    <script type="text/javascript">
+
+    function start(objButton) {
+
+        document.getElementById("temp").innerHTML = "Waiting for data...";
+        document.getElementById("tstamp").innerHTML ="";
+        var deviceID = "<< device id >>";
+        var accessToken = "<< access token >>";
+        var varName = "temperature";
+
+        requestURL = "https://api.spark.io/v1/devices/" + deviceID + "/" + varName + "/?access_token=" + accessToken;
+        $.getJSON(requestURL, function(json) {
+                 document.getElementById("temp").innerHTML = json.result + "&deg; F";
+                 document.getElementById("temp").style.fontSize = "28px";
+                 document.getElementById("tstamp").innerHTML = json.coreInfo.last_heard;
+                 });
+    }
+    </script>
+</body>
+</html>
