@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>event.result demo</title>
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+<body>
+ 
+<button>display event.result</button>
+<p></p>
+ 
+<script>
+$( "button" ).click(function( event ) {
+  return "hey";
+});
+$( "button" ).click(function( event ) {
+  $( "p" ).html( event.result );
+});
+</script>
+ 
+</body>
+</html>
