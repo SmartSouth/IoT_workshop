@@ -1,16 +1,28 @@
 <!DOCTYPE HTML>
 <html>
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+
 <body>
-    <span id="val"></span><br>
-    <button id="connectbutton" onclick="start()">Read whatever value it is</button>
-    <script type="text/javascript">
+  <span id="val"></span>
+  <br>
+  <span id="tstamp"></span>
+  <br>
+  <button id="connectbutton" onclick="start()">Read Value</button>
+  <script type="text/javascript">
     function start(objButton) {
-        var deviceID = "1b0030000347343233323032";
-        var accessToken = "43a77aef8bcfaee6d55070ebdbf4c415cf077aa3";
+        document.getElementById("val").innerHTML = "Waiting for data...";
+        document.getElementById("tstamp").innerHTML ="";
+        var deviceID = "<<your device ID>>";
+        var accessToken = "<<your access token>>";
         var varName = "analogvalue";
+
         requestURL = "https://api.spark.io/v1/devices/" + deviceID + "/" + varName + "/?access_token=" + accessToken;
         $.getJSON(requestURL, function(json) {
-                 document.getElementById("val").innerHTML = json.result + " value";
+                 document.getElementById("val").innerHTML = json.result;
+                 document.getElementById("tstamp").innerHTML = json.coreInfo.last_heard;
                  });
     }
+  </script>
+</body>
+
+</html>
