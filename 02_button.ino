@@ -7,6 +7,6 @@ int led = D7;
 }
 
 void loop(){
-    bool button_state=digitalRead(button); // works with ‘int button_state=...’ as well
+    int button_state=digitalRead(button); // works with ‘bool button_state=...’ as well
     digitalWrite(led, button_state);
 }
