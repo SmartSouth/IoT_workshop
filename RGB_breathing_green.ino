@@ -6,7 +6,7 @@ void setup() {
 }
 
 void loop() {
-     int x = 1;
+    int x = 1;
     for(int i=0; i<=255; i=i+x){
         RGB.brightness(i);
         if(i==254){
