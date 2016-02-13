@@ -1,11 +1,10 @@
-int led1 = D7;
-int state = 0;
+int led = D7;
 
 void setup()
 {
-   pinMode(led1, OUTPUT);
+   pinMode(led, OUTPUT);
    Spark.function("led",ledToggle);
-   digitalWrite(led1, LOW);
+   digitalWrite(led, LOW);
 
 }
 
@@ -17,13 +16,8 @@ void loop()
 int ledToggle(String command) {
 
 	if (command=="on") {
-			digitalWrite(led1, HIGH);
-		    return 1;
+			digitalWrite(led, HIGH);
 		} else if (command=="off") {
-			digitalWrite(led1, LOW);
-			state = 0; 
-			return 0;
-			} else {
-			    return -1;
+			digitalWrite(led, LOW);
 			}
 		}
