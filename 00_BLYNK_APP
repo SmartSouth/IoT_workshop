@@ -1,0 +1,11 @@
+char auth[] = "your-blynk-token";
+
+void setup(){
+Serial.begin(9600);
+Blynk.begin(auth);   
+}
+
+void loop()
+{
+  Blynk.run();
+}
