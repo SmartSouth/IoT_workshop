@@ -1,4 +1,4 @@
-int button_pin=D1;
+int button_pin=D2;
 
 void setup(){
   pinMode(button_pin, INPUT_PULLDOWN);
